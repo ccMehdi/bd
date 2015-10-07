@@ -1,4 +1,4 @@
-require 'Base64'
+require 'base64'
 require 'HTTParty'
 require 'uri'
 require 'pry'

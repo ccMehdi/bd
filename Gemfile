@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 gem 'sqlite3'
 gem 'rails', '4.2.4'
 #gem 'pg'
@@ -27,7 +28,8 @@ gem 'friendly_id'
 gem 'httparty'
 # gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'redis-session-store'
-gem "quiet_assets"
+gem 'quiet_assets'
+gem 'httparty'
 
 
 group :development, :test do
