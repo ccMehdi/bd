@@ -29,7 +29,7 @@ gem 'httparty'
 # gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'redis-session-store'
 gem 'quiet_assets'
-gem 'httparty'
+
 
 
 group :development, :test do
@@ -38,6 +38,7 @@ group :development, :test do
   gem 'cowsay'
   gem 'capistrano-passenger'
   gem 'capistrano'
+  gem 'capistrano-rails'
   # Setup Rspec and testing
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
