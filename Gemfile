@@ -39,6 +39,7 @@ group :development, :test do
   gem 'capistrano-passenger'
   gem 'capistrano'
   gem 'capistrano-rails'
+  gem 'capistrano-rvm'
   # Setup Rspec and testing
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
