@@ -1,7 +1,7 @@
 require 'base64'
 require 'httparty'
 require 'uri'
-require 'pry'
+#require 'pry'
 
 class BeaverDrive::Client
 
