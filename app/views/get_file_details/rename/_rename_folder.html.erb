@@ -1,0 +1,32 @@
+<div id="modal-<%= info['fi_id'] %>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">Rename The Folder</h3>
+      </div>
+      <div class="modal-body">
+        <div id="info-update-response-<%= info['fi_id'] %>"></div>
+        <%= form_tag(rename_get_file_details_path, method: 'post', remote: true) do |f| %>
+          <%= hidden_field_tag "fi_id", info['fi_id'] %>
+          <%= label_tag(:fi_name, 'New Folder Name:') %>
+          <%= text_field_tag(:fi_name) %>
+          <%= submit_tag("Rename", data: {disable_with: "submitting.."})%>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+      $('#modal-<%= info['fi_id'] %>').on('hidden.bs.modal', function (e) {
+          location.reload();
+      })
+    });
+</script>

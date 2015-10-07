@@ -83,3 +83,5 @@ production:
   database: beaverdrive_user_production
   username: beaverdrive_user
   password: <%= ENV['BEAVERDRIVE_USER_DATABASE_PASSWORD'] %>
+
+                  

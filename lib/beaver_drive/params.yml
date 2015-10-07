@@ -1,0 +1,10 @@
+Title:
+  Login Function
+  name:
+    gettoken
+  http_method:
+    GET
+  args:
+    us_login
+    us_password
+    arg_3

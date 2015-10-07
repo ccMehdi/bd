@@ -1,0 +1,166 @@
+<%= render '/layouts/nav' %>
+<div class="container-fluid">
+  <div class="row">
+    <div id="workspace_toolbar" class="col-12-md">
+      <div id="main-section-top" class="col-md-3">
+        <div class="text-center" style="padding-top: 9px;">
+          <h1 style="color: #fff;">My Dashboard</h1>
+        </div>
+      </div>
+      <div class="col-md-9" style="padding-top: 9px;">
+        <a class="btn btn-success" href="/get_file_providers" role="button">
+          File Explorer&nbsp;&nbsp;<i class="fa fa-folder-open"></i></a>
+        <div style="float: right;">
+          <a class="btn btn-danger" href="#settings-portal" role="button"
+            data-toggle="modal" data-target=".bs-example-modal-lg">
+            Settings&nbsp;&nbsp;<i class="fa fa-cogs"></i></a>
+            <%= render "/dashboards/settings/settings"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div id="workspace_toolbar_menu" class="col-12-md">
+      <div id="" class="col-md-3">
+        <br>
+        <div class="sidebar-nav">
+          <div class="navbar navbar-default">
+            <div class="heading">
+              <br>
+              <h3>My Account Info</h3>
+              <hr class="heading_user">
+              <b>Your Login:</b> <%= @user_detail_info['us_login'] %><br>
+              <b>Account #:</b> <%= @user_detail_info['us_id'] %><br>
+              <b>Email:</b> <%= @user_detail_info['us_email'] %>
+              <button type="button" class="btn btn-danger btn-xs right" data-toggle="modal" data-target="#us_email">edit</button><br>
+              <b>last Visit:</b> <%= @user_detail_info['us_lastvisit'] %><br>
+              <b>Current IP:</b> <span style="color: green;">123.123.123.123</span><br>
+              <b>Last IP:</b> <%= @user_detail_info['us_lastlastip'] %><br>
+              <br>
+              <h3>My Personal Info
+                <button type="button" class="btn btn-danger btn-xs right" data-toggle="modal" data-target="#personal_info">edit</button><br>
+                <%= render "/dashboards/personal_info/personal_info" %>
+              </h3>
+              <hr class="heading_user">
+              <b>Name:</b> <%= @user_detail_info['us_name'] %><br>
+              <b>Address</b> <%= @user_detail_info['us_adress'] %><br>
+              <b>Phone #:</b> <%= @user_detail_info['us_phone'] %><br>
+              <br>
+              <h3>My Package</h3>
+              <hr class="heading_user">
+              <b>Package:</b> <%= @user_detail_info['pa_name'] %></br>
+              <br>
+              <div class="text-center">
+                <input class="btn btn-danger btn-sm" type="button" value="Upgrade Package">
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="main" class="col-md-9">
+        <div class="providers">
+          <br>
+          <h3>My Current Providers</h3>
+          <br>
+          <table class="table table-hover provider">
+            <tr>
+              <th>Provider</th>
+              <th>Title</th>
+              <th>Last Sync</th>
+              <th style="text-align: center;">Has Backup</th>
+              <th>Size</th>
+              <th>Action</th>
+            </tr>
+            <% @folder_list_details.each do |pro| %>
+              <tr>
+                <td><%= pro['pr_name'] %></td>
+                <td><%= pro['title'] %></td>
+                <td><%= pro['pi_lastresync'] %></td>
+                <td style="text-align: center;">
+                  <% if pro['hasbackup'] == '0' %>
+                    <i class="fa fa-times" style="color: red;"></i>
+                  <% else %>
+                    <i class="fa fa-check" style="color: green;"></i>
+                  <% end %>
+                </td>
+                <td><%= number_to_human_size(pro['pi_total']) %></td>
+                <td>
+                  <button type="button" class="btn btn-warning btn-xs">Settings</button>
+                  <button class="btn btn-danger btn-xs" type="button">Delete</button>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+          <hr class="provider">
+          <div style="float: right;">
+            <%= paginate @folder_list_details %>
+            <%= page_entries_info @folder_list_details %>
+          </div>
+        </div>
+        <br>
+        <div class="settings">
+          <br>
+          <h3>My Schedule Tasks</h3>
+          <br>
+          <table class="table table-hover provider">
+            <tr>
+              <th>Task</th>
+              <th>Provider</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Period</th>
+              <th style="text-align: center;">When</th>
+              <th>Last run</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+              <td>backup DropBox</td>
+              <td>DropBox</td>
+              <td>backup</td>
+              <td>backup file to google</td>
+              <td>Weekly</td>
+              <td style="text-align: center;">Monday 9PM</td>
+              <td>09-28-2015 9:00:00</td>
+              <td>
+                <button class="btn btn-warning btn-xs" type="submit">Settings</button>
+                <button class="btn btn-danger btn-xs" type="submit">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Move Photo</td>
+              <td>iCloud</td>
+              <td>Move/td>
+              <td>Transfer iCloud to Images</td>
+              <td>Manual</td>
+              <td style="text-align: center;"><button class="btn btn-success btn-xs" type="submit">Run</button></td>
+              <td>09-28-2015 1:00:00</td>
+              <td>
+                <button class="btn btn-warning btn-xs" type="submit">Settings</button>
+                <button class="btn btn-danger btn-xs" type="submit">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Transfer File</td>
+              <td>CIFS</td>
+              <td>Transfer</td>
+              <td>Transfer from CIFS to Openstack</td>
+              <td>Daily</td>
+              <td style="text-align: center;">11:00PM</td>
+              <td>09-10-2015 11:00:00</td>
+              <td>
+                <button class="btn btn-warning btn-xs" type="submit">Settings</button>
+                <button class="btn btn-danger btn-xs" type="submit">Delete</button>
+              </td>
+            </tr>
+          </table>
+          <hr class="provider">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Email Change Modal Form -->

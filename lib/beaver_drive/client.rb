@@ -7,27 +7,21 @@ class BeaverDrive::Client
 
   attr_accessor :uname,
                 :password,
-                :function,
-                :http_method,
-                :arguments,
                 :token,
                 :error,
                 :result
 
-  BASE_URI = "http://sme.beaverdrive.com/api/json"
+  BASE_URI = 'http://sme.beaverdrive.com/api/json'
 
   def initialize(options = {})
     @uname        = options[:uname]
     @password     = options[:password]
-    @function     = options[:function]
-    @http_method  = options[:http_method] || 'get'
-    @arguments    = options[:arguments] || []
-    get_token
   end
 
-  def call
+  def call(req)
     begin
-      perform_rpc
+      get_token
+      perform_rpc(req)
     rescue => e
       raise e
     ensure
@@ -35,6 +29,7 @@ class BeaverDrive::Client
     end
     result || false
   end
+
 
   private
 
@@ -51,17 +46,28 @@ class BeaverDrive::Client
     if response['status'] == 'ok'
       @token = response['token']
     else
-      @errors = response['status'] || "Please verify your login information!"
+      @errors = response['status'] || 'Please verify your login information!'
     end
   end
 
-  def perform_rpc
+  def perform_rpc(req)
+
+    http_method = req[:method] || 'get'
+    function = req[:function]
+    arguments = req[:arguments] || []
+
     arguments_encoded = encode_arguments(arguments)
     function_path = "/#{token}/#{function}/#{arguments_encoded}"
     url  = BASE_URI + function_path
     raw_response = HTTParty.send(http_method.to_sym, url)
-    @result = JSON.parse raw_response.body
 
+    if raw_response.headers['content-type'] == 'application/json'
+      @result = JSON.parse raw_response.body
+    elsif raw_response.headers['content-type'] == 'application/octet-stream'
+      @result = raw_response
+    else
+      @result = raw_response
+    end
   end
 
 

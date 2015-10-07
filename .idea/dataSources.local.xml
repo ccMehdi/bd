@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails beaverdrive_user: development" uuid="9545e883-cbf8-4706-990b-cdff069f0cf4">
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+    </data-source>
+    <data-source name="Rails beaverdrive_user: test" uuid="34cb7451-1bd0-45bb-a698-82b36e971262">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails beaverdrive_user: production" uuid="e248c420-c545-443f-ba5b-08f284fdee5b">
+      <first-sync>true</first-sync>
+      <user-name>beaverdrive_user</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe8dfefdfebdffcdfefdff8dfeedff8dfe3dffcdfefdff5dfffdff9dfefdff8dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>

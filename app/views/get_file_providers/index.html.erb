@@ -1,0 +1,58 @@
+<%= render '/layouts/nav' %>
+<div class="container-fluid">
+  <div class="row">
+    <div id="workspace_toolbar" class="col-12-md">
+      <div id="main-section-top" class="col-md-3" style="padding-top: 9px;">
+        <div class="text-center">
+          <h1 style="color: #fff;">File Explorer</h1>
+        </div>
+      </div>
+      <div class="col-md-9" style="padding-top: 9px;">
+        <a class="btn btn-success" href="/dashboards" role="button">My Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div id="workspace_toolbar_menu" class="col-12-md">
+      <div class="col-md-3">
+        <br>
+        <div class="sidebar-nav">
+          <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <span class="visible-xs navbar-brand">Sidebar menu</span>
+            </div>
+            <div class="navbar-collapse collapse sidebar-navbar-collapse">
+              <ul class="nav navbar-nav social-icons icon-circle">
+                <% bob =  @folder_list['filelist'] %>
+                <% bob.each do |info| %>
+                  <% if info['fi_type'] == '1' %>
+                    <% if info['fi_provider'] == '54665' %>
+                      <li><a href="/get_file_details/<%= info['fi_id'] %>" class="likeBTN" id="<%= info['fi_id'] %>"><i class="fa fa-cloud"></i>&nbsp;<%=info['fi_name'] %></a></li>
+                    <% elsif info['fi_provider'] == '54666' %>
+                      <li><a href="/get_file_details/<%= info['fi_id'] %>" class="likeBTN" id="<%= info['fi_id'] %>"><i class="fa fa-dropbox"></i>&nbsp;<%=info['fi_name'] %></a></li>
+                    <% elsif info['fi_provider'] == '54667' %>
+                      <li><a href="/get_file_details/<%= info['fi_id'] %>" class="likeBTN" id="<%= info['fi_id'] %>"><i class="fa fa-google"></i>&nbsp;<%=info['fi_name'] %></a></li>
+                    <% else %>
+                      <li><a href="/get_file_details/<%= info['fi_id'] %>" class="likeBTN" id="<%= info['fi_id'] %>"><i class="fa fa-folder"></i>&nbsp;<%=info['fi_name'] %></a></li>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div id="main" class="col-md-9">
+        &nbsp;
+      </div>
+    </div>
+  </div>
+</div>

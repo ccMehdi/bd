@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="543001814">
+    <data-source source="LOCAL" name="Rails beaverdrive_user: development" uuid="9545e883-cbf8-4706-990b-cdff069f0cf4">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost/beaverdrive_user</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails beaverdrive_user: test" uuid="34cb7451-1bd0-45bb-a698-82b36e971262">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:beaverdrive_user_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails beaverdrive_user: production" uuid="e248c420-c545-443f-ba5b-08f284fdee5b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:beaverdrive_user_production</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

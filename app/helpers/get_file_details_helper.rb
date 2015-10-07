@@ -1,0 +1,2 @@
+module GetFileDetailsHelper
+end

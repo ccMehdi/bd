@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+
+
+  helpers:
+    label:
+      user_info:
+        name: Your Name
+        adress: Your Address
+        phone: Your Phone

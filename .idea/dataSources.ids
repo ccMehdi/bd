@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails beaverdrive_user: development" uuid="9545e883-cbf8-4706-990b-cdff069f0cf4">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails beaverdrive_user: test" uuid="34cb7451-1bd0-45bb-a698-82b36e971262">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails beaverdrive_user: production" uuid="e248c420-c545-443f-ba5b-08f284fdee5b">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
