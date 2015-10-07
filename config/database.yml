@@ -15,7 +15,7 @@
 # gem 'pg'
 #
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -83,5 +83,3 @@ production:
   database: beaverdrive_user_production
   username: beaverdrive_user
   password: <%= ENV['BEAVERDRIVE_USER_DATABASE_PASSWORD'] %>
-
-                  
