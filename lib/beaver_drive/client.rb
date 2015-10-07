@@ -1,5 +1,5 @@
 require 'base64'
-require 'HTTParty'
+require 'httparty'
 require 'uri'
 require 'pry'
 
