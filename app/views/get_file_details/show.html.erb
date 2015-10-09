@@ -104,6 +104,14 @@
                 <td><%=info['fi_extension'] %></td>
                 <td><%= number_to_human_size(info['fi_size']) %></td>
                 <td><%=info['fi_lastaccessed'] %></td>
+                <td>
+                  <a href="#rename_file" data-toggle="modal" data-target="#modal-<%= info['fi_id'] %>"><i class="fa fa-edit fa-lg"></i></a>
+                  <%= render "/get_file_details/rename/rename_folder", info: info %>
+                  <a href="#" data-id="<%= info['fi_id'] %>"><i class="fa fa-share-square-o fa-lg"></i></a>
+                  <a href="#share_item" data-toggle="modal" data-target="#share-<%= info['fi_id'] %>"><i class="fa fa-external-link fa-lg"></i></a>
+                  <%= render "/get_file_details/share/share", info: info %>
+                  <a href="#" data-id="<%= info['fi_id'] %>"><i class="fa fa-trash fa-lg"></i></a>
+                </td>
               <% end %>
             </tr>
           <% end %>
